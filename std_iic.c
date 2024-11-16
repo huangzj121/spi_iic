@@ -102,7 +102,7 @@ void    iic_stop(void)
 
 
 //等待应答信号到来
-//返回值：1，接收应答失败
+//返回值： 1，接收应答失败
 //        0，接收应答成功
 unsigned char    iic_wait_ack(void)
 {
@@ -200,7 +200,7 @@ unsigned char    iic_read_byte(const unsigned char       ack)
     }
     
     if ( !ack )   iic_nack();   //发送nACK
-    else          iic_ack();   //发送ACK
+    else          iic_ack();    //发送ACK
     
     return   recv;
 }
