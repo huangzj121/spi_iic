@@ -51,7 +51,7 @@ void    spi_us(const unsigned long     ts)
 
 void    SPI_init(void)
 {
-          nrf_gpio_cfg_output(SS1);
+      nrf_gpio_cfg_output(SS1);
 	  nrf_gpio_cfg_input(MISO,   NRF_GPIO_PIN_NOPULL);
 	  nrf_gpio_cfg_output(MOSI);
 	  nrf_gpio_cfg_output(SCK);
@@ -77,10 +77,10 @@ void    SPI_write(const unsigned char     addr,  unsigned char   val)
 	
 	  c = addr;
 	  for(i = 0; i < 8; ++i) {
-			        spi_us(PER_BIT);
-			        PinPull_0(SCK);   // 0
+			    spi_us(PER_BIT);
+			    PinPull_0(SCK);   // 0
 			  		  			  		  	
-			        if( (c & 0x80) == 0x80 ) {
+			    if( (c & 0x80) == 0x80 ) {
 					  PinPull_1(MOSI);
 				}
 				else {
@@ -95,10 +95,10 @@ void    SPI_write(const unsigned char     addr,  unsigned char   val)
 		
 	  c = val;
 	  for(i = 0; i < 8; ++i) {
-			        spi_us(PER_BIT);
-			        PinPull_0(SCK);  // 0			  
+			    spi_us(PER_BIT);
+			    PinPull_0(SCK);  // 0			  
 			  			  		  	
-			        if( (c & 0x80) == 0x80 ) {
+			    if( (c & 0x80) == 0x80 ) {
 					  PinPull_1(MOSI);
 				}
 				else {
@@ -126,10 +126,10 @@ unsigned char    SPI_read(const unsigned char     addr,  unsigned char*   dat)
 	
 	  c = addr;
 	  for(i = 0; i < 8; ++i) {
-			        spi_us(PER_BIT);
-			        PinPull_0(SCK);  // 0			  
+			    spi_us(PER_BIT);
+			    PinPull_0(SCK);  // 0			  
 			  			  		  	
-			        if( (c & 0x80) == 0x80 ) {
+			    if( (c & 0x80) == 0x80 ) {
 					  PinPull_1(MOSI);
 				}
 				else {
@@ -144,11 +144,11 @@ unsigned char    SPI_read(const unsigned char     addr,  unsigned char*   dat)
 	
 	  recv = 0;
 	  for(i = 0; i < 8; ++i) {
-			        spi_us(PER_BIT);
-			        PinPull_0(SCK);  // 0				  
+			    spi_us(PER_BIT);
+			    PinPull_0(SCK);  // 0				  
 			  	  			
-			        recv <<= 1;
-			        if( Pin_Read(MISO) ) {
+			    recv <<= 1;
+			    if( Pin_Read(MISO) ) {
 					  recv += 1;
 				}
 				
