@@ -32,7 +32,7 @@ unsigned char    SDA_Read(void)
 
 void    SDA_Control(const bool      tb)
 {
-          if( tb )
+      if( tb )
 	      nrf_gpio_pin_set(SDA);
 	  else
 	      nrf_gpio_pin_clear(SDA);
@@ -40,7 +40,7 @@ void    SDA_Control(const bool      tb)
 
 void    SCL_Control(const bool      tb)
 {
-          if( tb )
+      if( tb )
 	      nrf_gpio_pin_set(SCL);
 	  else
 	      nrf_gpio_pin_clear(SCL);
